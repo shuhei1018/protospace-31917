@@ -49,14 +49,18 @@
         <%# // ログインしているユーザーには上記を表示する %>
         <ul class="comments_lists">
           <%# 投稿に紐づくコメントを一覧する処理を記述する %>
-          <% if @comments %>
-            <li class="comments_list">
+          
+          
+            <% if @comments %>
               <% @comments.each do |comment| %>
-                <%= link_to comment.user.name, user_path(comment.id), class: :comment_user %>
+                <li class="comments_list">
                 <%=comment.text %>
+                (<%= link_to comment.user.name, user_path(comment.id), class: :comment_user %>)
+                </li>
               <% end %> 
-            </li>
-          <% end %>  
+            <% end %>  
+            
+         
           <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
         </ul>
       </div>
